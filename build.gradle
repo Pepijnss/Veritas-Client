@@ -3,6 +3,7 @@ plugins {
 	id 'maven-publish'
 }
 
+
 repositories {
 	// Add repositories to retrieve artifacts from in here.
 	// You should only use this when depending on other mods because
@@ -15,7 +16,7 @@ loom {
 	splitEnvironmentSourceSets()
 
 	mods {
-		"modid" {
+		"veritas-client" {
 			sourceSet sourceSets.main
 			sourceSet sourceSets.client
 		}
@@ -23,11 +24,10 @@ loom {
 }
 
 dependencies {
-	// To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	// no "mappings" line needed on 26.1+ — Minecraft ships unobfuscated
 	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-	// Fabric API. This is technically optional, but you probably want it anyway.
 	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 }
 
