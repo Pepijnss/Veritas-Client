@@ -1,4 +1,4 @@
 # Todo
-- [ ] Add comments to ModMenu.java
+- [x] Add comments to ModMenu.java
 - [ ] 
 - [ ] 
