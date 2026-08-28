@@ -1,4 +1,4 @@
-package com.example.client.modules;
+package com.veritas.client.modules;
 
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;

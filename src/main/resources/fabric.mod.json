@@ -12,22 +12,17 @@
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/modid/icon.png",
+	"icon": "assets/veritas-client/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
 			"com.example.ExampleMod"
 		],
 		"client": [
-			"com.example.client.ExampleModClient"
+			"com.veritas.client.ExampleModClient"
 		]
 	},
 	"mixins": [
-		"modid.mixins.json",
-		{
-			"config": "modid.client.mixins.json",
-			"environment": "client"
-		}
 	],
 	"depends": {
 		"fabricloader": ">=0.19.3",

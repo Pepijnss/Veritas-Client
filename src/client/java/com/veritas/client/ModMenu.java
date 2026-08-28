@@ -1,4 +1,4 @@
-package com.example.client;
+package com.veritas.client;
 
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;

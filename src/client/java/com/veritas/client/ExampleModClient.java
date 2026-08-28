@@ -1,6 +1,6 @@
-package com.example.client;
+package com.veritas.client;
 
-import com.example.client.modules.ModuleManager;
+import com.veritas.client.modules.ModuleManager;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -27,20 +27,24 @@ public class ExampleModClient implements ClientModInitializer {
 		// Run the Keystrokes renderer before the chat loads.
 		HudElementRegistry.attachElementBefore(
 				VanillaHudElements.CHAT,
-				Identifier.fromNamespaceAndPath("example", "keystrokes_hud"),
+				Identifier.fromNamespaceAndPath("veritas", "keystrokes_hud"),
 				moduleManager.keystrokes::render
 		);
 		// Run the Coords renderer before the chat loads.
 		HudElementRegistry.attachElementBefore(
 				VanillaHudElements.CHAT,
-				Identifier.fromNamespaceAndPath("example", "coords_hud"),
+				Identifier.fromNamespaceAndPath("veritas", "coords_hud"),
 				moduleManager.coords::render
 		);
 		HudElementRegistry.attachElementBefore(
 				VanillaHudElements.CHAT,
-				Identifier.fromNamespaceAndPath("example", "armour_durability"),
+				Identifier.fromNamespaceAndPath("veritas", "armour_durability"),
 				moduleManager.armourDurability::render
 		);
+		//HudElementRegistry.attachElementBefore(
+		//		VanillaHudElements.CHAT,
+		//		Identifier.fromNamespaceAndPath("veritas", "")
+		//);
 
 		// Key to open the mod menu.
 		openScreenKey = KeyMappingHelper.registerKeyMapping(new KeyMapping(

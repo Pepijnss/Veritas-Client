@@ -1,4 +1,4 @@
-package com.example.client.modules;
+package com.veritas.client.modules;
 
 import java.util.ArrayList;
 import java.util.List;

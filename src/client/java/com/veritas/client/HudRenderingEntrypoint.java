@@ -1,4 +1,4 @@
-package com.example.client;
+package com.veritas.client;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;

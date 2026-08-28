@@ -1,4 +1,4 @@
-package com.example.client.modules;
+package com.veritas.client.modules;
 
 public abstract class Module {
     private final String name;

@@ -1,10 +1,11 @@
-package com.example.client.modules;
+package com.veritas.client.modules;
 
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 
 public class ArmourDurability extends Module {
 
@@ -37,6 +38,8 @@ public class ArmourDurability extends Module {
 
 
 
+
+
         for (int i = 0; i < armorPieces.length; i++) {
             //System.out.println(armorPieces[i]);
             if (!armorPieces[i].isEmpty() || helmet.isDamageableItem()) {
@@ -50,7 +53,7 @@ public class ArmourDurability extends Module {
                 } else {
                     bootsDurability = currentDamage;
                 }
-
+                graphics.item(armorPieces[i], 100, 100);
             }
         }
     }
