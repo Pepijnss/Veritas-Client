@@ -22,7 +22,7 @@ public class Coords extends Module {
         int y = (int) Math.floor(player.getY()); // Get Y coordinate and use Math.floor to make it a nicer number/
         int z = (int) Math.floor(player.getZ()); // Get Z coordinate and use Math.floor to make it a nicer number/
 
-        String coordsText = String.format("XYZ: %d / %d / %d", x, y, z); // get the coords text
+        String coordsText = String.format("XYZ: %d / %d / %d", x, y, z); // get the coords text.
 
         graphics.text(client.font, coordsText, 5, 5, 0xFFFFFFFF, true); // actually display it on the screen
     }

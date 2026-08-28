@@ -33,6 +33,8 @@ public class ModMenu extends Screen { // Extend Screen class for making a Screen
     protected void init() { // Pass required args to CreateModuleToggle for buttons.
         CreateModuleToggle("Keystrokes", 40, 40, (func) -> { ToggleModule("Keystrokes"); });
         CreateModuleToggle("Coords", 170, 40, (func) -> { ToggleModule("Coords"); });
+        System.out.println("Making armor widget");
+        CreateModuleToggle("ArmourDurability", 300, 40, (func) -> { ToggleModule("ArmourDurability"); });
     }
     private Component getToggleLabel(String Text, boolean Toggled) { // Generate the text for the buttons.
         String stateText = Toggled ? "On" : "Off"; // If toggled true set stateText to On else set it to Off.

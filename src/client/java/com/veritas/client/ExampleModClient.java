@@ -14,10 +14,9 @@ import org.lwjgl.glfw.GLFW;
 
 public class ExampleModClient implements ClientModInitializer {
 	private static final KeyMapping.Category CATEGORY =
-			KeyMapping.Category.register(Identifier.fromNamespaceAndPath("example", "category"));
+			KeyMapping.Category.register(Identifier.fromNamespaceAndPath("veritas", "veritasclient"));
 
 	private static KeyMapping openScreenKey;
-	private static KeyMapping toggleKeystrokesKey;
 
 	public static ModuleManager moduleManager;
 
@@ -37,6 +36,12 @@ public class ExampleModClient implements ClientModInitializer {
 				Identifier.fromNamespaceAndPath("example", "coords_hud"),
 				moduleManager.coords::render
 		);
+		HudElementRegistry.attachElementBefore(
+				VanillaHudElements.CHAT,
+				Identifier.fromNamespaceAndPath("example", "armour_durability"),
+				moduleManager.armourDurability::render
+		);
+
 		// Key to open the mod menu.
 		openScreenKey = KeyMappingHelper.registerKeyMapping(new KeyMapping(
 				"key.veritas.modmenu",

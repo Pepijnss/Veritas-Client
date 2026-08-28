@@ -7,10 +7,12 @@ public class ModuleManager {
     private final List<Module> modules = new ArrayList<>();
     public final Keystrokes keystrokes = new Keystrokes();
     public final Coords coords = new Coords();
+    public final ArmourDurability armourDurability = new ArmourDurability();
 
     public ModuleManager() {
         modules.add(keystrokes);
         modules.add(coords);
+        modules.add(armourDurability);
     }
 
     public List<Module> getModules() {
