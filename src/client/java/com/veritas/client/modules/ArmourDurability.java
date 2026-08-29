@@ -2,6 +2,7 @@ package com.veritas.client.modules;
 
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -16,6 +17,14 @@ public class ArmourDurability extends Module {
 
     public void render(GuiGraphicsExtractor graphics, DeltaTracker deltaTime) {
         if (!isEnabled()) return;
+
+        int screenWidth = Minecraft.getInstance().getWindow().getGuiScaledWidth();
+        int screenHeight = Minecraft.getInstance().getWindow().getGuiScaledHeight();
+
+        int hotbarEdge = (screenWidth / 2) + 91;
+
+        //System.out.println(screenWidth);
+        //System.out.println(screenHeight);
 
         Minecraft client = Minecraft.getInstance();
         Player player = client.player;
@@ -33,27 +42,46 @@ public class ArmourDurability extends Module {
 
         ItemStack[] armorPieces = {helmet, chestplate, leggings, boots};
 
-        System.out.println(helmet.getItem());
+        //System.out.println(helmet.getItem());
 
 
-
-
+        Font font = client.font;
 
 
         for (int i = 0; i < armorPieces.length; i++) {
             //System.out.println(armorPieces[i]);
-            if (!armorPieces[i].isEmpty() || helmet.isDamageableItem()) {
-                int currentDamage = helmet.getDamageValue();
+            if (!armorPieces[i].isEmpty() || armorPieces[i].isDamageableItem()) {
+                int damageValue = armorPieces[i].getDamageValue();
+                int maxDamage = armorPieces[i].getMaxDamage();
+                int currentDamage = maxDamage - damageValue;
+
+                int x;
+                int y;
                 if (i == 0){
                     helmetDurability = currentDamage;
+                    x = hotbarEdge + 5;
+                    y = screenHeight - 65;
+                    graphics.item(armorPieces[i], x, y);
+                    graphics.text(font, String.valueOf(currentDamage), x+15, y+4, 0xFFFFFFFF);
                 } else if (i==1) {
                     chestplateDurability = currentDamage;
+                    x = hotbarEdge + 5;
+                    y = screenHeight - 50;
+                    graphics.item(armorPieces[i], x, y);
+                    graphics.text(font, String.valueOf(currentDamage), x+15, y+4, 0xFFFFFFFF);
                 } else if (i==2) {
                     leggingsDurability = currentDamage;
+                    x = hotbarEdge + 5;
+                    y = screenHeight - 35;
+                    graphics.item(armorPieces[i], x, y);
+                    graphics.text(font, String.valueOf(currentDamage), x+15, y+4, 0xFFFFFFFF);
                 } else {
                     bootsDurability = currentDamage;
+                    x = hotbarEdge + 5;
+                    y = screenHeight - 20;
+                    graphics.item(armorPieces[i], x, y);
+                    graphics.text(font, String.valueOf(currentDamage), x+15, y+4, 0xFFFFFFFF);
                 }
-                graphics.item(armorPieces[i], 100, 100);
             }
         }
     }
