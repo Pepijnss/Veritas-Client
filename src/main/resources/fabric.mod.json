@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
 	"id": "veritas-client",
-	"version": "${version}",
+	"version": "0.0.1-Pre-Alpha",
 	"name": "Veritas client",
 	"description": "A simple Minecraft client mod. Nothing more",
 	"authors": [
