@@ -17,6 +17,7 @@ public class ExampleModClient implements ClientModInitializer {
 			KeyMapping.Category.register(Identifier.fromNamespaceAndPath("veritas", "veritasclient"));
 
 	private static KeyMapping openScreenKey;
+	//private static KeyMapping openTestMenu;
 
 	public static ModuleManager moduleManager;
 
@@ -36,15 +37,17 @@ public class ExampleModClient implements ClientModInitializer {
 				Identifier.fromNamespaceAndPath("veritas", "coords_hud"),
 				moduleManager.coords::render
 		);
+		// Run the armourDurability renderer before the chat loads.
 		HudElementRegistry.attachElementBefore(
 				VanillaHudElements.CHAT,
 				Identifier.fromNamespaceAndPath("veritas", "armour_durability"),
 				moduleManager.armourDurability::render
 		);
-		//HudElementRegistry.attachElementBefore(
-		//		VanillaHudElements.CHAT,
-		//		Identifier.fromNamespaceAndPath("veritas", "")
-		//);
+		HudElementRegistry.attachElementBefore(
+				VanillaHudElements.CHAT,
+				Identifier.fromNamespaceAndPath("veritas", "fps_display"),
+				moduleManager.fpsDisplay::render
+		);
 
 		// Key to open the mod menu.
 		openScreenKey = KeyMappingHelper.registerKeyMapping(new KeyMapping(
@@ -53,10 +56,19 @@ public class ExampleModClient implements ClientModInitializer {
 				GLFW.GLFW_KEY_RIGHT_SHIFT,
 				CATEGORY));
 
+		//openTestMenu = KeyMappingHelper.registerKeyMapping(new KeyMapping(
+		//		"key.veritas.testscreen",
+		//		InputConstants.Type.KEYSYM,
+		//		GLFW.GLFW_KEY_R,
+		//		CATEGORY));
+
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
 			while (openScreenKey.consumeClick()) {
 				client.gui.setScreen(new ModMenu(Component.literal("My Screen")));
 			}
+			//while (openTestMenu.consumeClick()) {
+			//	client.gui.setScreen(new TestScreen((Component.literal("Test Screen"))));
+			//}
 		});
 	}
 }

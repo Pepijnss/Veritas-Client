@@ -8,11 +8,13 @@ public class ModuleManager {
     public final Keystrokes keystrokes = new Keystrokes();
     public final Coords coords = new Coords();
     public final ArmourDurability armourDurability = new ArmourDurability();
+    public final FpsDisplay fpsDisplay = new FpsDisplay();
 
     public ModuleManager() {
         modules.add(keystrokes);
         modules.add(coords);
         modules.add(armourDurability);
+        modules.add(fpsDisplay);
     }
 
     public List<Module> getModules() {

@@ -1,22 +1,20 @@
 {
 	"schemaVersion": 1,
-	"id": "modid",
+	"id": "veritas-client",
 	"version": "${version}",
-	"name": "Example Mod",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"name": "Veritas client",
+	"description": "A simple Minecraft client mod. Nothing more",
 	"authors": [
-		"Me!"
+		"NotOutofMemory"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/Pepijnss/Veritas-Client"
 	},
-	"license": "CC0-1.0",
+	"license": "GPL-3.0",
 	"icon": "assets/veritas-client/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.example.ExampleMod"
 		],
 		"client": [
 			"com.veritas.client.ExampleModClient"

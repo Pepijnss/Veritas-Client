@@ -16,12 +16,12 @@ public class ModMenu extends Screen { // Extend Screen class for making a Screen
     }
 
     // Create toggle for module.
-    protected void CreateModuleToggle(String Text, int x, int y, Consumer<String> func) {
+    protected void CreateModuleToggle(String Text, int x, int y, Consumer<String> func, String ModuleName) {
         Button toggleButton = Button.builder( // Build the button widget.
-                getToggleLabel(Text, ExampleModClient.moduleManager.getModule(Text).isEnabled()), // Set the text of the button.
+                getToggleLabel(ModuleName, ExampleModClient.moduleManager.getModule(ModuleName).isEnabled()), // Set the text of the button.
                 (btn) -> {
-                    func.accept(Text);
-                    boolean nowEnabled = ExampleModClient.moduleManager.getModule(Text).isEnabled(); // Set nowEnabled to the value isEnabled returns in Module.java.
+                    func.accept(ModuleName);
+                    boolean nowEnabled = ExampleModClient.moduleManager.getModule(ModuleName).isEnabled(); // Set nowEnabled to the value isEnabled returns in Module.java.
                     btn.setMessage(getToggleLabel(Text, nowEnabled)); // Gets the label from getToggleLabel.
                 }
         ).bounds(x, y, 120, 20).build();
@@ -31,10 +31,10 @@ public class ModMenu extends Screen { // Extend Screen class for making a Screen
 
     @Override
     protected void init() { // Pass required args to CreateModuleToggle for buttons.
-        CreateModuleToggle("Keystrokes", 40, 40, (func) -> { ToggleModule("Keystrokes"); });
-        CreateModuleToggle("Coords", 170, 40, (func) -> { ToggleModule("Coords"); });
-        System.out.println("Making armor widget");
-        CreateModuleToggle("ArmourDurability", 300, 40, (func) -> { ToggleModule("ArmourDurability"); });
+        CreateModuleToggle("Keystrokes", 40, 40, (func) -> { ToggleModule("Keystrokes"); }, "Keystrokes");
+        CreateModuleToggle("Coords", 170, 40, (func) -> { ToggleModule("Coords"); }, "Coords");
+        CreateModuleToggle("ArmourDurability", 300, 40, (func) -> { ToggleModule("ArmourDurability"); }, "ArmourDurability");
+        CreateModuleToggle("Fps Display", 40, 70, (func) -> { ToggleModule("FpsDisplay"); }, "FpsDisplay");
     }
     private Component getToggleLabel(String Text, boolean Toggled) { // Generate the text for the buttons.
         String stateText = Toggled ? "On" : "Off"; // If toggled true set stateText to On else set it to Off.
